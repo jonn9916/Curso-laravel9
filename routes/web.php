@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   $notes =[
+       'primera nota',
+       'segunda nota',
+       'tercera nota',
+       'cuarta nota',
+       'quinta nota'
+
+   ];
+   return view('notes',['notes' => $notes]);
+});
+
+
+
+Route::get('/notas/crear', function () {
+    return view('add-note');
+});
+
+Route::get('/notas/{id}/editar', function ($id) {
+    return 'editar nota'.$id;
+});
+
+Route::get('/notas/{id}', function ($id) {
+    return 'detalles de la nota'.$id;
 });
